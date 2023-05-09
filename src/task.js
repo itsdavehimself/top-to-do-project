@@ -1,23 +1,29 @@
-const projectFactory = (projectName) => {
-  const taskArr = [];
-  let taskIDCount = 0;
+const projectArr = [];
 
-  function taskFactory(taskName, description, dueDate, priority, id) {
-    return { taskName, description, dueDate, priority, id};
-  };
-  
-  function createTask(taskName, description, dueDate, priority) {
-    const taskItem = taskFactory(taskName, description, dueDate, priority, taskIDCount);
-    taskArr.push(taskItem);
-    taskIDCount += 1;
+function createProject (name) {
+  const project = {
+    name,
+    taskArr: [],
+    id: Date.now(),
+    createTask(taskName, description, dueDate, priority) {
+      const task = {
+        taskName,
+        description,
+        dueDate,
+        priority,
+        id: Date.now()
+      }
+
+      this.taskArr.push(task);
+      console.log(this.taskArr);
+    },
+    deleteTask(id) {
+      const taskID = this.taskArr.findIndex(object => object.id === id);
+      this.taskArr.splice(taskID, 1);
+    }
   }
-  
-  function deleteTask(id) {
-    const taskID = taskArr.findIndex(object => object.id === id);
-    taskArr.splice(taskID, 1);
-  }
+  projectArr.push(project);
+  return project
+};
 
-  return { projectName, taskArr, taskIDCount, createTask, deleteTask };
-}
-
-export default projectFactory;
+export default createProject;
