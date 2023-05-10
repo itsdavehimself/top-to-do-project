@@ -1,4 +1,5 @@
 import { projectArr } from "./task";
+import displayTask from "./display-task";
 
 const addTask = projectIndex => e => {
   e.preventDefault();
@@ -7,13 +8,15 @@ const addTask = projectIndex => e => {
   const taskDescription = document.getElementById('task-description').value;
   const taskDueDate = document.getElementById('task-date').value;
   const taskPriority = document.getElementById('task-priority').value;
-  const newTask = projectArr[projectIndex].createTask(taskName, taskDescription, taskDueDate, taskPriority)
   const addTaskForm = document.querySelector('.add-task-form');
+  const projectTaskArr = projectArr[projectIndex].taskArr
+  projectArr[projectIndex].createTask(taskName, taskDescription, taskDueDate, taskPriority)
   document.getElementById('task-name').value = '';
   document.getElementById('task-description').value = '';
   document.getElementById('task-date').value = '';
   document.getElementById('task-priority').value = '';
   tasksDiv.removeChild(addTaskForm);
+  displayTask(projectTaskArr);
 }
 
 export default addTask;
