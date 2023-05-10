@@ -14,7 +14,7 @@ const taskPriorityHigh = document.createElement('option');
 const addTaskBtn = document.createElement('button');
 const cancelTaskBtn = document.createElement('button');
 
-addTaskDiv.classList.add('add-task');
+addTaskDiv.classList.add('add-task-form');
 taskForm.classList.add('task-form');
 taskNameLabel.setAttribute('for', 'task-name');
 taskDescLabel.setAttribute('for', 'task-description');
@@ -65,4 +65,4 @@ function addTaskForm() {
   taskForm.appendChild(addTaskBtn);
 }
 
-export { addTaskForm, addTaskBtn };
+export { addTaskForm, addTaskBtn, cancelTaskBtn };
