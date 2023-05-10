@@ -20,9 +20,9 @@ function displayProject(name, id) {
 
   projectsDiv.addEventListener('click', (e) => {
     if (e.target.className === 'project-card') {
-      showProject(e.target.textContent, e.target.id);
+      showProject(e.target.id);
     }
-  });
+  }, {once : true});
 
   projectDeleteBtn.addEventListener('click', () => {
     projectsDiv.removeChild(projectContainer);
