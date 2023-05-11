@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.header {
+  background-color: #569DF4;
+}
+
+.sidebar {
+  background-color: #fafafa;
+}
+
+.project-card:hover {
+  background-color: #93B3DB;
+  cursor: pointer;
+
+}
+
+.add-task {
+  cursor: pointer;
+}

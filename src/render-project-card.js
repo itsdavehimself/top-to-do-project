@@ -1,8 +1,10 @@
+import { projectArr } from "./task";
 import { projectForm, projectNameBtn } from './form-create-project'
 import addProject from './add-project';
-import renderProjectCard from './render-project-card';
+import showProject from "./show-project";
 
-function projectsPage() {
+
+function renderProjectCard() {
   const contentDiv = document.querySelector('.content');
   const projectsDiv = document.createElement('div');
   const addProjectBtn = document.createElement('button');
@@ -16,8 +18,18 @@ function projectsPage() {
   contentDiv.removeChild(contentDiv.firstChild);
   contentDiv.appendChild(projectsDiv);
   projectsDiv.appendChild(addProjectBtn);
-  renderProjectCard();
+  for (let i = 0; i < projectArr.length; i+=1) {
+    const projectName = projectArr[i].name
+    const projectID = projectArr[i].id
+    const projectCard = document.createElement('div');
+    const projectTitle = document.createElement('p');
+    projectCard.classList.add('project-card');
+    projectCard.setAttribute('id', projectID);
+    projectTitle.textContent = `${projectName}`
+    projectsDiv.appendChild(projectCard);
+    projectCard.appendChild(projectTitle);
+    projectCard.addEventListener('click', () => showProject(projectID));
+  }
 }
 
-export default projectsPage;
-
+export default renderProjectCard;

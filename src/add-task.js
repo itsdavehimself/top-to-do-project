@@ -1,8 +1,8 @@
 import { projectArr } from "./task";
 import displayTask from "./display-task";
 
-const addTask = projectIndex => e => {
-  e.preventDefault();
+function addTask(projectIndex) {
+  console.log(`from addtask${  projectIndex}`);
   const tasksDiv = document.querySelector('.tasks');
   const taskName = document.getElementById('task-name').value;
   const taskDescription = document.getElementById('task-description').value;

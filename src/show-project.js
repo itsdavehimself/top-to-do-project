@@ -2,6 +2,7 @@ import { projectArr } from "./task";
 import { addTaskForm, addTaskBtn, cancelTaskBtn } from "./form-add-task";
 import addTask from "./add-task";
 import cancelAddTask from "./cancel-add-task";
+import displayTask from "./display-task";
 
 const contentDiv = document.querySelector('.content');
 
@@ -24,10 +25,14 @@ function showProject(id) {
   contentDiv.appendChild(projectDetailsDiv);
   projectDetailsDiv.appendChild(projectTitle);
   projectDetailsDiv.appendChild(tasksDiv);
+  displayTask(projectArr[projectIndex].taskArr)
   tasksDiv.appendChild(newTask);
   newTask.appendChild(addTaskToProject);
   addTaskToProject.addEventListener('click', addTaskForm);
-  addTaskBtn.addEventListener('click', addTask(projectIndex));
+  addTaskBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    addTask(projectIndex)
+  }, {once: true});
   cancelTaskBtn.addEventListener('click', cancelAddTask);
 }
 
