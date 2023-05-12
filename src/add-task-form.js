@@ -1,3 +1,5 @@
+import renderTaskList from "./render-task-list";
+
 const addTaskDiv = document.createElement('div');
 const taskForm = document.createElement('form');
 const taskNameLabel = document.createElement('label');
@@ -46,7 +48,40 @@ addTaskBtn.textContent = "Add task";
 cancelTaskBtn.classList.add('cancel-task-btn');
 cancelTaskBtn.textContent = "Cancel";
 
-function addTaskForm() {
+function addTask(project) {
+  return (e) => {
+    e.preventDefault();
+    console.log(`just ran add task function for project: ${project.name}`);
+    const taskName = document.getElementById('task-name').value;
+    const taskDescription = document.getElementById('task-description').value;
+    const taskDate = document.getElementById('task-date').value;
+    const taskPriority = document.getElementById('task-priority').value;
+    const tasksDiv = document.querySelector('.tasks');
+    project.createTask(taskName, taskDescription, taskDate, taskPriority);
+    document.getElementById('task-name').value = '';
+    document.getElementById('task-description').value = '';
+    document.getElementById('task-date').value = '';
+    document.getElementById('task-priority').value = '';
+    tasksDiv.removeChild(addTaskDiv);
+    console.log(project);
+    renderTaskList(project);
+  }
+};
+
+function cancelTask(project) {
+  return (e) => {
+    e.preventDefault();
+    const tasksDiv = document.querySelector('.tasks');
+    console.log(`ran cancel task fnction for project: ${project.name}`);
+    document.getElementById('task-name').value = '';
+    document.getElementById('task-description').value = '';
+    document.getElementById('task-date').value = '';
+    document.getElementById('task-priority').value = '';
+    tasksDiv.removeChild(addTaskDiv);
+  }
+}
+
+function addTaskForm(project) {
   const tasksDiv = document.querySelector('.tasks');
   tasksDiv.appendChild(addTaskDiv);
   addTaskDiv.appendChild(taskForm);
@@ -63,6 +98,9 @@ function addTaskForm() {
   taskPrioritySelect.appendChild(taskPriorityHigh);
   taskForm.appendChild(cancelTaskBtn);
   taskForm.appendChild(addTaskBtn);
+  console.log(`about to run add task function for project: ${project.name}`)
+  addTaskBtn.addEventListener('click', addTask(project), {once: true});
+  cancelTaskBtn.addEventListener('click', cancelTask(project), {once: true});
 }
 
 export { addTaskForm, addTaskBtn, cancelTaskBtn };

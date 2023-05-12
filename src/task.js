@@ -23,7 +23,8 @@ function createProject (name) {
     }
   }
   projectArr.push(project);
+  console.log(projectArr);
   return project
 };
 
-export default createProject;
+export { createProject, projectArr };

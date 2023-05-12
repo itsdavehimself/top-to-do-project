@@ -1,19 +1,25 @@
-import { projectForm, projectNameBtn } from './form-create-project'
-import addProject from './add-project';
+import projectForm from "./add-project-form";
+import renderProjectList from "./render-project-list";
 
 const contentDiv = document.querySelector('.content');
-const projectsDiv = document.createElement('div');
+const projectsPageDiv = document.createElement('div');
+const addProjectDiv = document.createElement('div');
 const addProjectBtn = document.createElement('button');
+const currentProjectsDiv = document.createElement('div');
+currentProjectsDiv.classList.add('current-projects');
 
+projectsPageDiv.classList.add('projects');
+addProjectDiv.classList.add('add-project');
 addProjectBtn.classList.add('add-project-btn');
-addProjectBtn.textContent = '+ Add Project'
-projectsDiv.classList.add('projects')
-addProjectBtn.addEventListener('click', projectForm)
-projectNameBtn.addEventListener('click', addProject);
+addProjectBtn.textContent = '+ Add Project';
+addProjectBtn.addEventListener('click', projectForm);
 
 function projectsPage() {
-  contentDiv.appendChild(projectsDiv);
-  projectsDiv.appendChild(addProjectBtn);
+  contentDiv.appendChild(projectsPageDiv);
+  projectsPageDiv.appendChild(addProjectDiv);
+  addProjectDiv.appendChild(addProjectBtn);
+  projectsPageDiv.appendChild(currentProjectsDiv);
+  renderProjectList();
 }
 
 export default projectsPage;
