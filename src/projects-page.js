@@ -23,4 +23,3 @@ function projectsPage() {
 }
 
 export default projectsPage;
-

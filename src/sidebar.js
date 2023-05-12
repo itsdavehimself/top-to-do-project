@@ -1,16 +1,15 @@
-const homeBtn = document.createElement('button');
+const sideBarDiv = document.querySelector('.sidebar');
 const projectsPageBtn = document.createElement('button');
+const homeBtn = document.createElement('button');
 
+projectsPageBtn.classList.add('projects-page-btn');
+projectsPageBtn.textContent = 'Projects';
 homeBtn.classList.add('home-btn');
 homeBtn.textContent = 'Home';
-projectsPageBtn.classList.add('all-projects-btn');
-projectsPageBtn.textContent = 'Projects';
-
 
 function sideBar() {
-
-};
-
-
+  sideBarDiv.appendChild(homeBtn);
+  sideBarDiv.appendChild(projectsPageBtn);
+}
 
 export { sideBar, homeBtn, projectsPageBtn };
