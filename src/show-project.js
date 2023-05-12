@@ -4,7 +4,6 @@ const contentDiv = document.querySelector('.content');
 
 function showProject(project) {
   contentDiv.replaceChildren();
-  console.log(`from show project${  project.name}`)
   const projectViewDiv = document.createElement('div');
   const projectTitle = document.createElement('p');
   const taskDiv = document.createElement('div');
@@ -12,9 +11,10 @@ function showProject(project) {
   taskDiv.classList.add('tasks');
   openTaskForm.classList.add('add-task');
   openTaskForm.textContent = 'Add task';
-  openTaskForm.addEventListener('click', () => addTaskForm(project));
+  openTaskForm.addEventListener('click', addTaskForm);
   projectTitle.textContent = `${project.name}`;
   projectViewDiv.classList.add('project-view');
+  projectViewDiv.setAttribute('id', project.id)
   contentDiv.appendChild(projectViewDiv);
   projectViewDiv.appendChild(projectTitle);
   projectViewDiv.appendChild(taskDiv);

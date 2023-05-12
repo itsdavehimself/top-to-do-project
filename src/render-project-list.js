@@ -7,9 +7,11 @@ function renderProjectList() {
   for (let i = 0; i < projectArr.length; i+=1){
     const projectCard = document.createElement('div');
     const projectName = projectArr[i].name;
+    const projectID = projectArr[i].id;
     const project = projectArr[i];
     projectCard.textContent = `${projectName}`;
     projectCard.classList.add('project-card');
+    projectCard.setAttribute('id', projectID);
     currentProjectsDiv.appendChild(projectCard);
     projectCard.addEventListener('click', () => showProject(project), {once: true});
   }

@@ -1,4 +1,5 @@
 import renderTaskList from "./render-task-list";
+import { projectArr } from "./task";
 
 const addTaskDiv = document.createElement('div');
 const taskForm = document.createElement('form');
@@ -48,40 +49,39 @@ addTaskBtn.textContent = "Add task";
 cancelTaskBtn.classList.add('cancel-task-btn');
 cancelTaskBtn.textContent = "Cancel";
 
-function addTask(project) {
-  return (e) => {
+function addTask(e) {
     e.preventDefault();
-    console.log(`just ran add task function for project: ${project.name}`);
+    console.log(`just ran add task function`);
+    const projectViewDiv = document.querySelector('.project-view');
+    const projectID = projectViewDiv.getAttribute('id');
+    const projectIndex = projectArr.findIndex(object => object.id === Number(projectID));
     const taskName = document.getElementById('task-name').value;
     const taskDescription = document.getElementById('task-description').value;
     const taskDate = document.getElementById('task-date').value;
     const taskPriority = document.getElementById('task-priority').value;
     const tasksDiv = document.querySelector('.tasks');
-    project.createTask(taskName, taskDescription, taskDate, taskPriority);
+    projectArr[projectIndex].createTask(taskName, taskDescription, taskDate, taskPriority);
     document.getElementById('task-name').value = '';
     document.getElementById('task-description').value = '';
     document.getElementById('task-date').value = '';
     document.getElementById('task-priority').value = '';
     tasksDiv.removeChild(addTaskDiv);
-    console.log(project);
-    renderTaskList(project);
-  }
+    console.log(projectArr[projectIndex]);
+    renderTaskList(projectArr[projectIndex]);
 };
 
-function cancelTask(project) {
-  return (e) => {
-    e.preventDefault();
+function cancelTask(e) {
     const tasksDiv = document.querySelector('.tasks');
-    console.log(`ran cancel task fnction for project: ${project.name}`);
+    console.log(`ran cancel task function`);
     document.getElementById('task-name').value = '';
     document.getElementById('task-description').value = '';
     document.getElementById('task-date').value = '';
     document.getElementById('task-priority').value = '';
-    tasksDiv.removeChild(addTaskDiv);
-  }
+    tasksDiv.removeChild(addTaskDiv); 
+    e.preventDefault();
 }
 
-function addTaskForm(project) {
+function addTaskForm() {
   const tasksDiv = document.querySelector('.tasks');
   tasksDiv.appendChild(addTaskDiv);
   addTaskDiv.appendChild(taskForm);
@@ -98,9 +98,9 @@ function addTaskForm(project) {
   taskPrioritySelect.appendChild(taskPriorityHigh);
   taskForm.appendChild(cancelTaskBtn);
   taskForm.appendChild(addTaskBtn);
-  console.log(`about to run add task function for project: ${project.name}`)
-  addTaskBtn.addEventListener('click', addTask(project), {once: true});
-  cancelTaskBtn.addEventListener('click', cancelTask(project), {once: true});
+  console.log(`about to run add task function`)
+  addTaskBtn.addEventListener('click', addTask, {once: true});
+  cancelTaskBtn.addEventListener('click', cancelTask, {once: true});
 }
 
 export { addTaskForm, addTaskBtn, cancelTaskBtn };
