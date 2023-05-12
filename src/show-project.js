@@ -1,4 +1,5 @@
 import { addTaskForm } from "./add-task-form";
+import renderTaskList from "./render-task-list";
 
 const contentDiv = document.querySelector('.content');
 
@@ -19,6 +20,7 @@ function showProject(project) {
   projectViewDiv.appendChild(projectTitle);
   projectViewDiv.appendChild(taskDiv);
   projectViewDiv.appendChild(openTaskForm);
+  renderTaskList(project);
 }
 
 export default showProject;
