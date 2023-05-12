@@ -1,39 +1,24 @@
-import { projectArr } from "./task";
-import { addTaskForm, addTaskBtn, cancelTaskBtn } from "./form-add-task";
-import addTask from "./add-task";
-import cancelAddTask from "./cancel-add-task";
-import displayTask from "./display-task";
+import { addTaskForm } from "./add-task-form";
 
 const contentDiv = document.querySelector('.content');
 
-function showProject(id) {
-  const projectDetailsDiv = document.createElement('div');
+function showProject(project) {
+  contentDiv.replaceChildren();
+  console.log(`from show project${  project.name}`)
+  const projectViewDiv = document.createElement('div');
   const projectTitle = document.createElement('p');
-  const projectIndex = projectArr.findIndex(object => object.id === Number(id))
-  const tasksDiv = document.createElement('div');
-  const newTask = document.createElement('div');
-  const addTaskToProject = document.createElement('p');
-
-  contentDiv.removeChild(contentDiv.lastChild);
-  projectDetailsDiv.classList.add('project-details')
-  projectDetailsDiv.setAttribute('id', id);
-  projectTitle.classList.add('project-title');
-  projectTitle.textContent = `${projectArr[projectIndex].name}`;
-  tasksDiv.classList.add('tasks');
-  newTask.classList.add('new-task');
-  addTaskToProject.textContent = 'Add task';
-  contentDiv.appendChild(projectDetailsDiv);
-  projectDetailsDiv.appendChild(projectTitle);
-  projectDetailsDiv.appendChild(tasksDiv);
-  displayTask(projectArr[projectIndex].taskArr)
-  tasksDiv.appendChild(newTask);
-  newTask.appendChild(addTaskToProject);
-  addTaskToProject.addEventListener('click', addTaskForm);
-  addTaskBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    addTask(projectIndex)
-  }, {once: true});
-  cancelTaskBtn.addEventListener('click', cancelAddTask);
+  const taskDiv = document.createElement('div');
+  const openTaskForm = document.createElement('div');
+  taskDiv.classList.add('tasks');
+  openTaskForm.classList.add('add-task');
+  openTaskForm.textContent = 'Add task';
+  openTaskForm.addEventListener('click', () => addTaskForm(project));
+  projectTitle.textContent = `${project.name}`;
+  projectViewDiv.classList.add('project-view');
+  contentDiv.appendChild(projectViewDiv);
+  projectViewDiv.appendChild(projectTitle);
+  projectViewDiv.appendChild(taskDiv);
+  projectViewDiv.appendChild(openTaskForm);
 }
 
 export default showProject;
