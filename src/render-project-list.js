@@ -9,11 +9,22 @@ function renderProjectList() {
     const projectName = projectArr[i].name;
     const projectID = projectArr[i].id;
     const project = projectArr[i];
+    const deleteProjectBtn = document.createElement('button');
+    
+    deleteProjectBtn.classList.add('delete-project-btn');
+    deleteProjectBtn.textContent = 'Delete project';
     projectCard.textContent = `${projectName}`;
     projectCard.classList.add('project-card');
     projectCard.setAttribute('id', projectID);
     currentProjectsDiv.appendChild(projectCard);
+    currentProjectsDiv.appendChild(deleteProjectBtn);
     projectCard.addEventListener('click', () => showProject(project), {once: true});
+    deleteProjectBtn.addEventListener('click', () => {
+      currentProjectsDiv.removeChild(projectCard);
+      currentProjectsDiv.removeChild(deleteProjectBtn);
+      projectArr.splice(i, 1);
+      console.log(i);
+    });
   }
 }
 
