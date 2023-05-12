@@ -8,6 +8,7 @@ function renderTaskList(project) {
     const taskCardDescription = document.createElement('p');
     const taskCardDate = document.createElement('p');
     const taskCardPriority = document.createElement('p');
+    const deleteTaskBtn = document.createElement('button');
     taskCard.classList.add('task-card');
     taskCardTitle.classList.add('task-card-title');
     taskCardTitle.textContent = project.taskArr[i].taskName;
@@ -17,11 +18,18 @@ function renderTaskList(project) {
     taskCardDate.textContent = project.taskArr[i].dueDate;
     taskCardPriority.classList.add('task-card-priority');
     taskCardPriority.textContent = project.taskArr[i].priority;
+    deleteTaskBtn.classList.add('delete-task-btn');
+    deleteTaskBtn.textContent = 'Delete task';
+    deleteTaskBtn.addEventListener('click', () => {
+      project.taskArr.splice(i, 1);
+      tasksDiv.removeChild(taskCard);
+    });
     tasksDiv.appendChild(taskCard);
     taskCard.appendChild(taskCardTitle);
     taskCard.appendChild(taskCardDescription);
     taskCard.appendChild(taskCardDate);
     taskCard.appendChild(taskCardPriority);
+    taskCard.appendChild(deleteTaskBtn);
   }
 }
 
