@@ -1,15 +1,13 @@
-import { projectArr } from "./task";
+import allTasks from "./render-all-tasks";
 
 const contentDiv = document.querySelector('.content');
 const homeDiv = document.createElement('div');
-const allTasks = document.createElement('div');
 
 homeDiv.classList.add('home-container');
-allTasks.classList.add('all-tasks');
 
 function homePage() {
   contentDiv.appendChild(homeDiv);
-  homeDiv.appendChild(allTasks);
+  allTasks();
 }
 
 export default homePage;
