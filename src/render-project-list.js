@@ -16,6 +16,7 @@ function renderProjectList() {
     const trashCan = document.createElement('img');
 
     trashCan.src = trashIcon;
+    trashCan.classList.add('trash-icon');
     deleteProjectBtn.classList.add('delete-project-btn');
     deleteProjectBtn.appendChild(trashCan);
     projectContainer.classList.add('project-container');
