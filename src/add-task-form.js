@@ -98,6 +98,7 @@ function addTaskForm() {
   taskPrioritySelect.appendChild(taskPriorityHigh);
   taskForm.appendChild(cancelTaskBtn);
   taskForm.appendChild(addTaskBtn);
+  taskNameInput.focus();
   console.log(`about to run add task function`)
   addTaskBtn.addEventListener('click', addTask, {once: true});
   cancelTaskBtn.addEventListener('click', cancelTask, {once: true});
