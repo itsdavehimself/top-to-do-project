@@ -1,5 +1,6 @@
 import { projectArr } from "./task";
 import showProject from "./show-project";
+import trashIcon from './trash-can-outline.svg';
 
 function renderProjectList() {
   const currentProjectsDiv = document.querySelector('.current-projects');
@@ -12,9 +13,11 @@ function renderProjectList() {
     const projectID = projectArr[i].id;
     const project = projectArr[i];
     const deleteProjectBtn = document.createElement('button');
+    const trashCan = document.createElement('img');
 
+    trashCan.src = trashIcon;
     deleteProjectBtn.classList.add('delete-project-btn');
-    deleteProjectBtn.textContent = 'Del';
+    deleteProjectBtn.appendChild(trashCan);
     projectContainer.classList.add('project-container');
     projectCard.classList.add('project-card');
     projectCard.setAttribute('id', projectID);
