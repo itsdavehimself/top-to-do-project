@@ -33,6 +33,7 @@ function projectForm() {
   projectCreateForm.appendChild(projectNameLabel);
   projectCreateForm.appendChild(projectNameInput);
   projectCreateForm.appendChild(projectNameBtn);
+  projectNameInput.focus();
 };
 
 export default projectForm;
