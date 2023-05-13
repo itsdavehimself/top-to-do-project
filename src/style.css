@@ -65,12 +65,171 @@ body {
   background-color: #fafafa;
 }
 
-.project-card:hover {
-  background-color: #93B3DB;
-  cursor: pointer;
-
+.content {
+  display: grid;
 }
+
+.projects {
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 50px 1px 1fr;
+  padding-top: 50px;
+}
+
+.projects-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 750px;
+  align-items: center;
+}
+
+.projects-header>p {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  justify-self: start;
+  color: #212121
+}
+
+.add-project-btn {
+  border: none;
+  background-color: #fff;
+  color: #666;
+  width: 112px;
+  height: 35px;
+  font-weight: 700;
+  border-radius: 6px;
+  justify-self: end;
+  transition: 0.4s;
+}
+
+.add-project-btn:hover {
+  background-color: #f0f0f0;
+  color: #212121;
+  cursor: pointer;
+}
+
+.add-project-btn:active {
+  transform: scale(.9);
+}
+
+.break {
+  width: 750px;
+  border: none;
+  border-top: .5px solid #f0f0f0;
+}
+
+.current-projects {
+  padding-top: 30px;
+  display: grid;
+  width: 750px;
+  grid-auto-rows: 44px;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: 750px 50fr;
+  height: 50px;
+  align-items: center;
+  gap: 10px;
+}
+
+.project-card {
+  display: grid;
+  transition: .4s;
+  height: 44px;
+  align-items: center;
+  grid-template-columns: 44px 1fr;
+}
+
+.project-card > p {
+  margin: 0;
+}
+
+.project-bullet {
+  height: 44px;
+  width: 44px;
+  filter: invert(.5);
+}
+
+.project-card-name {
+  font-weight: 600;
+  font-size: .9rem;
+  color: #212121;
+}
+
+.project-container:hover > .project-card {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.delete-project-btn {
+  display: grid;
+  border: none;
+  background-color: #fff;
+  color: #fff;
+  transition: .4s;
+  height: 32px;
+  width: 32px;
+  align-items: center;
+}
+
+.trash-icon {
+  filter: invert(1);
+  transition: .4s;
+}
+
+.project-container:hover > .delete-project-btn {
+  color: #666;
+}
+
+.project-container:hover .trash-icon {
+  filter: invert(.5);
+}
+
+.delete-project-btn:hover > .trash-icon {
+  filter: invert(.25);
+}
+
+.delete-project-btn:hover {
+  color: #212121;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-project-btn:active {
+  transform: scale(.9);
+}
+
 
 .add-task {
   cursor: pointer;
+}
+
+.project-view {
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 50px 1px auto 1fr;
+  padding-top: 50px;
+}
+
+.project-view-title {
+  display: grid;
+  margin: 0;
+  width: 750px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  align-items: center;
+  color: #212121
+}
+
+.tasks {
+  padding-top: 30px;
+}
+
+.task-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
