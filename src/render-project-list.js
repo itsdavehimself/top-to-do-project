@@ -11,7 +11,7 @@ function renderProjectList() {
     const projectID = projectArr[i].id;
     const project = projectArr[i];
     const deleteProjectBtn = document.createElement('button');
-    
+
     deleteProjectBtn.classList.add('delete-project-btn');
     deleteProjectBtn.textContent = 'Delete project';
     projectContainer.classList.add('project-container');
@@ -19,14 +19,14 @@ function renderProjectList() {
     projectCard.classList.add('project-card');
     projectCard.setAttribute('id', projectID);
     currentProjectsDiv.appendChild(projectContainer);
-    projectContainer.appendChild(projectCard)
+    projectContainer.appendChild(projectCard);
     projectContainer.appendChild(deleteProjectBtn);
     projectCard.addEventListener('click', () => showProject(project), {once: true});
     deleteProjectBtn.addEventListener('click', () => {
-      currentProjectsDiv.removeChild(projectCard);
-      currentProjectsDiv.removeChild(deleteProjectBtn);
+      currentProjectsDiv.removeChild(projectContainer);
       projectArr.splice(i, 1);
       console.log(i);
+      renderProjectList();
     });
   }
 }
