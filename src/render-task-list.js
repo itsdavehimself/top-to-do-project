@@ -5,11 +5,13 @@ function renderTaskList(project) {
   for (let i = 0; i < tasks.length; i+=1) {
     const taskCard = document.createElement('div');
     const taskCheckBox = document.createElement('input');
+    const taskCardInfo = document.createElement('div');
     const taskCardTitle = document.createElement('p');
     const taskCardDescription = document.createElement('p');
     const taskCardDate = document.createElement('p');
     const taskCardPriority = document.createElement('p');
     const deleteTaskBtn = document.createElement('button');
+    taskCardInfo.classList.add('task-card-info');
     taskCard.classList.add('task-card');
     taskCheckBox.setAttribute('type', 'checkbox');
     taskCheckBox.classList.add('task-checkbox');
@@ -33,10 +35,11 @@ function renderTaskList(project) {
     });
     tasksDiv.appendChild(taskCard);
     taskCard.appendChild(taskCheckBox);
-    taskCard.appendChild(taskCardTitle);
-    taskCard.appendChild(taskCardDescription);
-    taskCard.appendChild(taskCardDate);
-    taskCard.appendChild(taskCardPriority);
+    taskCard.appendChild(taskCardInfo);
+    taskCardInfo.appendChild(taskCardTitle);
+    taskCardInfo.appendChild(taskCardDescription);
+    taskCardInfo.appendChild(taskCardDate);
+    taskCardInfo.appendChild(taskCardPriority);
     taskCard.appendChild(deleteTaskBtn);
   }
 }
