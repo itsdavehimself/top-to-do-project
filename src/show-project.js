@@ -14,6 +14,7 @@ function showProject(project) {
   openTaskForm.textContent = 'Add task';
   openTaskForm.addEventListener('click', addTaskForm);
   projectTitle.textContent = `${project.name}`;
+  projectTitle.classList.add('project-view-title');
   projectViewDiv.classList.add('project-view');
   projectViewDiv.setAttribute('id', project.id)
   contentDiv.appendChild(projectViewDiv);
