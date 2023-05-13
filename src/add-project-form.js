@@ -12,7 +12,7 @@ projectNameInput.setAttribute('id', 'project-name');
 projectNameInput.setAttribute('name', 'project-name');
 projectNameInput.setAttribute('type', 'text');
 projectNameBtn.textContent = "Add";
-projectNameBtn.classList.add('add-project-btn');
+projectNameBtn.classList.add('add-project-btn-form');
 
 function addProject(e) {
   const projectsDiv = document.querySelector('.projects');
