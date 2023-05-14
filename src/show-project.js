@@ -8,11 +8,16 @@ function showProject(project) {
   const projectViewDiv = document.createElement('div');
   const projectTitle = document.createElement('p');
   const taskDiv = document.createElement('div');
+  const addTaskBtnDiv = document.createElement('div');
+  const addTaskPlus = document.createElement('div');
   const openTaskForm = document.createElement('div');
   const breakLine = document.createElement('hr');
 
-  breakLine.classList.add('break');
+  breakLine.classList.add('tasks-break');
   taskDiv.classList.add('tasks');
+  addTaskBtnDiv.classList.add('add-task-btn-div');
+  addTaskPlus.classList.add('add-task-plus');
+  addTaskPlus.textContent = '+';
   openTaskForm.classList.add('add-task');
   openTaskForm.textContent = 'Add task';
   openTaskForm.addEventListener('click', addTaskForm);
@@ -24,7 +29,9 @@ function showProject(project) {
   projectViewDiv.appendChild(projectTitle);
   projectViewDiv.appendChild(breakLine);
   projectViewDiv.appendChild(taskDiv);
-  projectViewDiv.appendChild(openTaskForm);
+  projectViewDiv.appendChild(addTaskBtnDiv);
+  addTaskBtnDiv.appendChild(addTaskPlus);
+  addTaskBtnDiv.appendChild(openTaskForm);
   renderTaskList(project);
 }
 
