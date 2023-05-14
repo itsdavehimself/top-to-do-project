@@ -1,6 +1,7 @@
 import { projectArr } from "./task";
 import showProject from "./show-project";
 import trashIcon from './trash-can-outline.svg';
+import bulletIcon from './circle-small.svg';
 
 function renderProjectList() {
   const currentProjectsDiv = document.querySelector('.current-projects');
@@ -14,9 +15,12 @@ function renderProjectList() {
     const project = projectArr[i];
     const deleteProjectBtn = document.createElement('button');
     const trashCan = document.createElement('img');
+    const bulletPoint = document.createElement('img');
 
     trashCan.src = trashIcon;
     trashCan.classList.add('trash-icon');
+    bulletPoint.src = bulletIcon;
+    bulletPoint.classList.add('project-bullet');
     deleteProjectBtn.classList.add('delete-project-btn');
     deleteProjectBtn.appendChild(trashCan);
     projectContainer.classList.add('project-container');
@@ -26,6 +30,7 @@ function renderProjectList() {
     projectNameCard.textContent = `${projectName}`;
     currentProjectsDiv.appendChild(projectContainer);
     projectContainer.appendChild(projectCard);
+    projectCard.appendChild(bulletPoint);
     projectCard.appendChild(projectNameCard);
     projectContainer.appendChild(deleteProjectBtn);
     projectCard.addEventListener('click', () => showProject(project), {once: true});
