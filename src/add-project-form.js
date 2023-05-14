@@ -11,6 +11,7 @@ projectNameLabel.setAttribute('for', 'project-name');
 projectNameInput.setAttribute('id', 'project-name');
 projectNameInput.setAttribute('name', 'project-name');
 projectNameInput.setAttribute('type', 'text');
+projectNameInput.setAttribute('autocomplete', 'off');
 projectNameBtn.textContent = "Add";
 projectNameBtn.classList.add('add-project-btn-form');
 
