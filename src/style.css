@@ -203,8 +203,37 @@ body {
   transform: scale(.9);
 }
 
+.add-task-btn-div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 24px;
+  gap: 6px;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.add-task-plus {
+  display: grid;
+  height: 20px;
+  width: 20px;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+}
+
 .add-task {
   cursor: pointer;
+  color: #B0B0B0;
+  align-items: center;
+}
+
+.add-task-btn-div:hover .add-task-plus {
+  background-color: #569DF4;
+  color: #fff;
+}
+
+.add-task-btn-div:hover .add-task {
+  color: #569DF4;
 }
 
 .project-view {
@@ -265,7 +294,7 @@ body {
 }
 
 .add-task-form {
-  width: 730px;
+  width: 728px;
   height: auto;
   border: 1px solid #cdcdcd;
   border-radius: 8px;
@@ -326,7 +355,7 @@ input#task-description:focus {
   grid-template-columns: 1fr 1fr;
   padding-top: 12px;
   padding-bottom: 4px;
-  align-items: center;
+  align-items: end;
 }
 
 .drop-down-div {
@@ -373,7 +402,7 @@ select#task-priority {
   border-width: 1px;
   padding: 4px;
   background-color: #fff;
-  width: 108px;
+  width: 118px;
 }
 
 .button-div {
@@ -387,7 +416,7 @@ select#task-priority {
   border: none;
   color: #212121;
   width: 86px;
-  height: 42px;
+  height: 36px;
   font-weight: 700;
   border-radius: 6px;
   justify-self: end;
@@ -399,7 +428,7 @@ select#task-priority {
   border: none;
   color: #fff;
   width: 86px;
-  height: 42px;
+  height: 36px;
   font-weight: 700;
   border-radius: 6px;
   justify-self: end;
