@@ -66,6 +66,79 @@ body {
   background-color: #fafafa;
 }
 
+.sidebar-btn-div {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding-top: 18px;
+}
+
+.home-btn-div {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  text-align: start;
+  height: 36px;
+  width: 260px;
+  background-color: #fafafa;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #212121;
+  padding-left: 8px;
+  transition: .4s;
+  align-items: center;
+  gap: 16px;
+}
+
+.home-btn-div.active {
+  background-color: #ebebeb;
+}
+
+.home-icon {
+  height: 26px;
+  width: 26px;
+  filter: invert(.3);
+}
+
+.list-icon {
+  height: 26px;
+  width: 26px;
+  filter: invert(.3);
+}
+
+.projects-btn-div {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  text-align: start;
+  height: 36px;
+  width: 260px;
+  background-color: #fafafa;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #212121;
+  padding-left: 8px; 
+  transition: .4s;
+  align-items: center;
+  gap: 16px;
+}
+
+.projects-btn-div.active {
+  background-color: #ebebeb;
+}
+
+.home-btn-div:hover {
+  cursor: pointer;
+  background-color: #ebebeb;
+}
+
+.projects-btn-div:hover {
+  cursor: pointer;
+  background-color: #ebebeb;
+}
+
 .content {
   display: grid;
 }
