@@ -4,8 +4,7 @@ function allTasks() {
   const allTasksDiv = document.createElement('div');
   const homeDiv = document.querySelector('.home-container');
   const allTasksHeader = document.createElement('p');
-  allTasksHeader.classList.add('all-tasks-header');
-  allTasksHeader.textContent = 'All Tasks';
+  const allTaskArr = [];
   homeDiv.replaceChildren();
   allTasksDiv.classList.add('all-tasks');
   homeDiv.appendChild(allTasksHeader);
@@ -25,6 +24,7 @@ function allTasks() {
       const {description} = task;
       const {priority} = task;
       const projectName = project.name;
+      allTaskArr.push(task);
 
       taskCard.classList.add('home-task-card')
       taskCard.setAttribute('project-id', project.id);
@@ -47,6 +47,8 @@ function allTasks() {
       taskCard.appendChild(taskCardPriority);
     }
   }
+  allTasksHeader.classList.add('all-tasks-header');
+  allTasksHeader.textContent = `All tasks (${allTaskArr.length})`;
 };
 
 export default allTasks;
