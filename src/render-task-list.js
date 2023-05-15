@@ -59,8 +59,8 @@ function renderTaskList(project) {
 
     const dateArr = project.taskArr[i].dueDate.split('-');
     const year = dateArr[0]
-    const month = (Number(dateArr[1].replace('0', '')) - 1).toString();
-    const date = dateArr[2].replace('0', '');
+    const month = (Number(dateArr[1]) - 1).toString();
+    const date = Number(dateArr[2]);
     const formattedDate = format(new Date(year, month, date), 'MMMM do, y');
     const today = new Date();
     const todaysDay = today.getDate();
