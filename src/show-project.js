@@ -15,9 +15,6 @@ function showProject(project) {
   const openTaskForm = document.createElement('p');
   const breakLine = document.createElement('hr');
 
-
-  trashCan.src = trashIcon;
-  trashCan.classList.add('trash-icon-task');
   breakLine.classList.add('tasks-break');
   taskDiv.classList.add('tasks');
   addTaskBtnDiv.classList.add('add-task-btn-div');
