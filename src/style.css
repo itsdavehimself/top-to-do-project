@@ -141,6 +141,85 @@ body {
 
 .content {
   display: grid;
+  justify-content: center;
+}
+
+.home-container {
+  display: grid;
+  width: 750px;
+  padding-top: 50px;
+  grid-template-rows: 50px 1fr;
+}
+
+.all-tasks-header {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  justify-self: start;
+  color: #212121;
+  align-self: center;
+}
+
+.home-task-card {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.home-task-check-div {
+  display: grid;
+  border: 1px solid #b0b0b0;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  transition: .4s;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+}
+
+.home-task-check-div:hover {
+  cursor: pointer;
+  border-color: #569DF4;
+  box-shadow: 0 0 3px 3px #569DF4;
+  background-color: #f0f0f0;
+}
+
+.home-task-info-div {
+  display: grid;
+  grid-template-rows: 32px 1fr;
+}
+
+.home-task-info-div p {
+  margin: 0;
+}
+
+.home-task-title-div {
+  display: grid;
+  align-items: center;
+}
+
+.home-task-bottom-div  p {
+  font-size: .8rem;
+}
+
+.home-task-date-div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+}
+
+.home-task-date.overdue {
+  color: #DF0000;
+}
+
+.home-task-priority-div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+}
+
+.home-task-project-div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
 }
 
 .projects {
