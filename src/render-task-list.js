@@ -1,10 +1,15 @@
+import trashIcon from './trash-can-outline.svg';
+import calendarIcon from './calendar-multiselect.svg';
+import checkMark from './check.svg';
+
 function renderTaskList(project) {
   const tasksDiv = document.querySelector('.tasks');
   const tasks = project.taskArr
   tasksDiv.replaceChildren();
   for (let i = 0; i < tasks.length; i+=1) {
     const taskCard = document.createElement('div');
-    const taskCheckBox = document.createElement('input');
+    const taskCheckBoxDiv = document.createElement('div');
+    const taskCheckBox = document.createElement('div');
     const taskCardInfo = document.createElement('div');
     const taskCardSecondary = document.createElement('div');
     const taskCardTitle = document.createElement('p');
@@ -14,9 +19,20 @@ function renderTaskList(project) {
     const taskCardPriorityTitle = document.createElement('p');
     const taskCardPriority = document.createElement('p');
     const deleteTaskBtn = document.createElement('button');
+    const trashCan = document.createElement('img');
+    const calendar = document.createElement('img');
+    const check = document.createElement('img');
+    const taskCardDateDiv = document.createElement('div');
+
+    trashCan.src = trashIcon;
+    trashCan.classList.add('trash-icon-task');
+    calendar.src = calendarIcon;
+    calendar.classList.add('calendar-icon');
+    check.src = checkMark;
+    check.classList.add('check-icon-task');
     taskCardInfo.classList.add('task-card-info');
     taskCard.classList.add('task-card');
-    taskCheckBox.setAttribute('type', 'checkbox');
+    taskCheckBoxDiv.classList.add('task-checkbox-div');
     taskCheckBox.classList.add('task-checkbox');
     taskCheckBox.addEventListener('click', () => {
       project.taskArr.splice(i, 1);
@@ -29,6 +45,7 @@ function renderTaskList(project) {
     taskCardTitle.textContent = project.taskArr[i].taskName;
     taskCardDescription.classList.add('task-card-description')
     taskCardDescription.textContent = project.taskArr[i].description;
+    taskCardDateDiv.classList.add('task-card-date-div');
     taskCardDate.classList.add('task-card-date');
     taskCardDate.textContent = project.taskArr[i].dueDate;
 
@@ -43,18 +60,22 @@ function renderTaskList(project) {
     taskCardPriorityTitle.textContent = 'Priority: ';
     taskCardPriority.textContent = project.taskArr[i].priority;
     deleteTaskBtn.classList.add('delete-task-btn');
-    deleteTaskBtn.textContent = 'Delete task';
+    deleteTaskBtn.appendChild(trashCan);
     deleteTaskBtn.addEventListener('click', () => {
       project.taskArr.splice(i, 1);
       tasksDiv.removeChild(taskCard);
     });
     tasksDiv.appendChild(taskCard);
-    taskCard.appendChild(taskCheckBox);
+    taskCard.appendChild(taskCheckBoxDiv);
+    taskCheckBoxDiv.appendChild(taskCheckBox);
+    taskCheckBox.appendChild(check);
     taskCard.appendChild(taskCardInfo);
     taskCardInfo.appendChild(taskCardTitle);
     taskCardInfo.appendChild(taskCardSecondary);
     taskCardSecondary.appendChild(taskCardDescription);
-    taskCardSecondary.appendChild(taskCardDate);
+    taskCardSecondary.appendChild(taskCardDateDiv);
+    taskCardDateDiv.appendChild(calendar);
+    taskCardDateDiv.appendChild(taskCardDate);
     taskCardSecondary.appendChild(taskCardPriorityDiv);
     taskCardPriorityDiv.appendChild(taskCardPriorityTitle);
     taskCardPriorityDiv.appendChild(taskCardPriority);
