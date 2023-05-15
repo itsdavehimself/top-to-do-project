@@ -205,35 +205,52 @@ body {
 
 .add-task-btn-div {
   display: grid;
-  grid-template-columns: auto 1fr;
-  height: 24px;
-  gap: 6px;
+  grid-template-columns: 22px 1fr;
+  height: 30px;
   align-items: center;
-  padding-top: 8px;
+  gap: 4px;
+}
+
+.add-task-plus-div {
+  display: grid;
+  height: 22px;
+  width: 22px;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 300;
+  border-radius: 50%;
+  transition: .4s;
 }
 
 .add-task-plus {
-  display: grid;
-  height: 20px;
-  width: 20px;
-  align-items: center;
   text-align: center;
-  border-radius: 50%;
+  color: #569DF4;
 }
 
-.add-task {
+.add-task-btn-div:hover {
   cursor: pointer;
-  color: #B0B0B0;
-  align-items: center;
+}
+
+.add-task-btn-div:hover .add-task-plus-div {
+  background-color: #569DF4;
+  transform: rotate(90deg);
 }
 
 .add-task-btn-div:hover .add-task-plus {
-  background-color: #569DF4;
   color: #fff;
 }
 
-.add-task-btn-div:hover .add-task {
+.add-task-div {
+  color: #b0b0b0;
+  transition: .4s;
+}
+
+.add-task-btn-div:hover .add-task-div {
   color: #569DF4;
+}
+
+.add-task-btn-div p {
+  margin: 0;
 }
 
 .project-view {
@@ -272,13 +289,18 @@ body {
 }
 
 .task-card p {
+  display: grid;
   margin: 0;
+  align-items: center;
 }
 
 .task-card-info {
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  gap: 6px;
+  grid-template-rows: 32px 1fr;
+}
+
+.task-card-title {
+  height: 26px;
 }
 
 .task-card-description {
@@ -291,6 +313,12 @@ body {
 
 .task-card-priority {
   font-size: .8rem;
+}
+
+.task-card-secondary {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 4px;
 }
 
 .add-task-form {
