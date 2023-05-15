@@ -1,3 +1,4 @@
+import { format, formatDistance, isPast } from "date-fns";
 import trashIcon from './trash-can-outline.svg';
 import calendarIcon from './calendar-multiselect.svg';
 import checkMark from './check.svg';
@@ -47,7 +48,6 @@ function renderTaskList(project) {
     taskCardDescription.textContent = project.taskArr[i].description;
     taskCardDateDiv.classList.add('task-card-date-div');
     taskCardDate.classList.add('task-card-date');
-    taskCardDate.textContent = project.taskArr[i].dueDate;
 
     if (project.taskArr[i].priority === 'low') {
       taskCardPriority.classList.add('task-card-priority-low');
@@ -55,6 +55,28 @@ function renderTaskList(project) {
       taskCardPriority.classList.add('task-card-priority-medium');
     } else {
       taskCardPriority.classList.add('task-card-priority-high');
+    };
+
+    const dateArr = project.taskArr[i].dueDate.split('-');
+    const year = dateArr[0]
+    const month = (Number(dateArr[1].replace('0', '')) - 1).toString();
+    const date = dateArr[2].replace('0', '');
+    const formattedDate = format(new Date(year, month, date), 'MMMM do, y');
+    const today = new Date();
+    const todaysDay = today.getDate();
+    const todaysMonth = today.getMonth();
+    const todaysYear = today.getFullYear();
+    const dateDistance = formatDistance(new Date(year, month, date), new Date(todaysYear, todaysMonth, todaysDay), {
+      addSuffix: true
+    });
+
+    if (isPast(new Date(year, month, date))) {
+      taskCardDate.textContent = `Due: ${dateDistance}`
+      taskCardDate.classList.add('overdue');
+    } else if (formatDistance(new Date(year, month, date), new Date(todaysYear, todaysMonth, todaysDay)) === '1 day') {
+      taskCardDate.textContent = `Due: tomorrow`;
+    } else {
+      taskCardDate.textContent = `Due: ${formattedDate}`
     };
     
     taskCardPriorityTitle.textContent = 'Priority: ';
