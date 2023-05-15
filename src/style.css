@@ -550,6 +550,10 @@ body {
   align-items: center;
 }
 
+.task-card-date.overdue {
+  color: #DF0000;
+}
+
 .task-priority-div {
   display: grid;
   grid-template-columns: 48px 1fr;
