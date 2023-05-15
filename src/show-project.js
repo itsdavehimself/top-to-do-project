@@ -9,15 +9,22 @@ function showProject(project) {
   const projectTitle = document.createElement('p');
   const taskDiv = document.createElement('div');
   const addTaskBtnDiv = document.createElement('div');
-  const addTaskPlus = document.createElement('div');
-  const openTaskForm = document.createElement('div');
+  const addTaskPlusDiv = document.createElement('div');
+  const addTaskPlus = document.createElement('p');
+  const addTaskDiv = document.createElement('div');
+  const openTaskForm = document.createElement('p');
   const breakLine = document.createElement('hr');
 
+
+  trashCan.src = trashIcon;
+  trashCan.classList.add('trash-icon-task');
   breakLine.classList.add('tasks-break');
   taskDiv.classList.add('tasks');
   addTaskBtnDiv.classList.add('add-task-btn-div');
+  addTaskPlusDiv.classList.add('add-task-plus-div');
   addTaskPlus.classList.add('add-task-plus');
   addTaskPlus.textContent = '+';
+  addTaskDiv.classList.add('add-task-div');
   openTaskForm.classList.add('add-task');
   openTaskForm.textContent = 'Add task';
   openTaskForm.addEventListener('click', addTaskForm);
@@ -30,8 +37,10 @@ function showProject(project) {
   projectViewDiv.appendChild(breakLine);
   projectViewDiv.appendChild(taskDiv);
   projectViewDiv.appendChild(addTaskBtnDiv);
-  addTaskBtnDiv.appendChild(addTaskPlus);
-  addTaskBtnDiv.appendChild(openTaskForm);
+  addTaskBtnDiv.appendChild(addTaskPlusDiv);
+  addTaskPlusDiv.appendChild(addTaskPlus);
+  addTaskBtnDiv.appendChild(addTaskDiv);
+  addTaskDiv.appendChild(openTaskForm);
   renderTaskList(project);
 }
 
