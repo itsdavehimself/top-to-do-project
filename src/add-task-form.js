@@ -53,6 +53,7 @@ addTaskBtn.classList.add('add-task-btn');
 addTaskBtn.textContent = "Add task";
 cancelTaskBtn.classList.add('cancel-task-btn');
 cancelTaskBtn.textContent = "Cancel";
+cancelTaskBtn.setAttribute('type', 'button');
 bottomDiv.classList.add('bottom-form-div');
 dropDownDiv.classList.add('drop-down-div');
 buttonDiv.classList.add('button-div');

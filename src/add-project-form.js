@@ -28,6 +28,7 @@ projectNameBtn.textContent = 'Add';
 projectNameBtn.classList.add('add-project-btn-form');
 cancelProjectBtn.classList.add('cancel-project-btn-form');
 cancelProjectBtn.textContent = 'Cancel';
+cancelProjectBtn.setAttribute('type', 'button');
 
 function addProject(e) {
   const mainDiv = document.querySelector('.main');
@@ -50,7 +51,7 @@ function cancelProjectAdd(e) {
 projectNameBtn.addEventListener('click', addProject);
 projectNameBtn.addEventListener('click', renderProjectList);
 cancelProjectBtn.addEventListener('click', cancelProjectAdd);
-projectCreateFormDiv.addEventListener('click', (e) => e.stopPropagation())
+projectCreateFormDiv.addEventListener('click', (e) => e.stopPropagation());
 coveringPanel.addEventListener('click', cancelProjectAdd);
 
 function projectForm() {
