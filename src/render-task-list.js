@@ -10,6 +10,8 @@ function renderTaskList(project) {
     const taskCardTitle = document.createElement('p');
     const taskCardDescription = document.createElement('p');
     const taskCardDate = document.createElement('p');
+    const taskCardPriorityDiv = document.createElement('div');
+    const taskCardPriorityTitle = document.createElement('p');
     const taskCardPriority = document.createElement('p');
     const deleteTaskBtn = document.createElement('button');
     taskCardInfo.classList.add('task-card-info');
@@ -20,6 +22,8 @@ function renderTaskList(project) {
       project.taskArr.splice(i, 1);
       tasksDiv.removeChild(taskCard);
     });
+    taskCardPriorityDiv.classList.add('task-priority-div');
+    taskCardPriorityTitle.classList.add('task-card-priority-title')
     taskCardTitle.classList.add('task-card-title');
     taskCardSecondary.classList.add('task-card-secondary');
     taskCardTitle.textContent = project.taskArr[i].taskName;
@@ -27,7 +31,16 @@ function renderTaskList(project) {
     taskCardDescription.textContent = project.taskArr[i].description;
     taskCardDate.classList.add('task-card-date');
     taskCardDate.textContent = project.taskArr[i].dueDate;
-    taskCardPriority.classList.add('task-card-priority');
+
+    if (project.taskArr[i].priority === 'low') {
+      taskCardPriority.classList.add('task-card-priority-low');
+    } else if (project.taskArr[i].priority === 'medium') {
+      taskCardPriority.classList.add('task-card-priority-medium');
+    } else {
+      taskCardPriority.classList.add('task-card-priority-high');
+    };
+    
+    taskCardPriorityTitle.textContent = 'Priority: ';
     taskCardPriority.textContent = project.taskArr[i].priority;
     deleteTaskBtn.classList.add('delete-task-btn');
     deleteTaskBtn.textContent = 'Delete task';
@@ -42,7 +55,9 @@ function renderTaskList(project) {
     taskCardInfo.appendChild(taskCardSecondary);
     taskCardSecondary.appendChild(taskCardDescription);
     taskCardSecondary.appendChild(taskCardDate);
-    taskCardSecondary.appendChild(taskCardPriority);
+    taskCardSecondary.appendChild(taskCardPriorityDiv);
+    taskCardPriorityDiv.appendChild(taskCardPriorityTitle);
+    taskCardPriorityDiv.appendChild(taskCardPriority);
     taskCard.appendChild(deleteTaskBtn);
   }
 }
