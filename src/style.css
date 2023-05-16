@@ -210,7 +210,7 @@ body {
   width: 14px;
 }
 
-.check-icon-task-home:hover {
+.home-task-check:hover .check-icon-task-home {
   filter: invert(.2);
 }
 
