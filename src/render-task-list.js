@@ -58,27 +58,31 @@ function renderTaskList(project) {
     };
 
     const dateArr = project.taskArr[i].dueDate.split('-');
-    const year = dateArr[0]
-    const month = (Number(dateArr[1]) - 1).toString();
-    const date = Number(dateArr[2]);
-    const formattedDate = format(new Date(year, month, date), 'MMMM do, y');
-    const today = new Date();
-    const todaysDay = today.getDate();
-    const todaysMonth = today.getMonth();
-    const todaysYear = today.getFullYear();
-    const dateDistance = formatDistance(new Date(year, month, date), new Date(todaysYear, todaysMonth, todaysDay), {
-      addSuffix: true
-    });
-
-    if (isPast(new Date(year, month, date))) {
-      taskCardDate.textContent = `Due: ${dateDistance}`
-      taskCardDate.classList.add('overdue');
-    } else if (formatDistance(new Date(year, month, date), new Date(todaysYear, todaysMonth, todaysDay)) === '1 day') {
-      taskCardDate.textContent = `Due: tomorrow`;
+    if (dateArr.length < 3) {
+      taskCardDate.textContent = 'No due date';
     } else {
-      taskCardDate.textContent = `Due: ${formattedDate}`
+      const year = dateArr[0]
+      const month = (Number(dateArr[1]) - 1).toString();
+      const date = Number(dateArr[2]);
+      const formattedDate = format(new Date(year, month, datse), 'MMMM do, y');
+      const today = new Date();
+      const todaysDay = today.getDate();
+      const todaysMonth = today.getMonth();
+      const todaysYear = today.getFullYear();
+      const dateDistance = formatDistance(new Date(year, month, date), new Date(todaysYear, todaysMonth, todaysDay), {
+        addSuffix: true
+      });
+  
+      if (isPast(new Date(year, month, date))) {
+        taskCardDate.textContent = `Due: ${dateDistance}`
+        taskCardDate.classList.add('overdue');
+      } else if (formatDistance(new Date(year, month, date), new Date(todaysYear, todaysMonth, todaysDay)) === '1 day') {
+        taskCardDate.textContent = `Due: tomorrow`;
+      } else {
+        taskCardDate.textContent = `Due: ${formattedDate}`
+      };
     };
-    
+
     taskCardPriorityTitle.textContent = 'Priority: ';
     taskCardPriority.textContent = project.taskArr[i].priority;
     deleteTaskBtn.classList.add('delete-task-btn');
