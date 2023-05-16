@@ -1,4 +1,5 @@
-const projectArr = [];
+const projectArr = localStorage.getItem('array') ?
+JSON.parse(localStorage.getItem('array')) : [] ;
 
 function createProject (name) {
   const project = {
@@ -24,6 +25,7 @@ function createProject (name) {
   }
   projectArr.push(project);
   console.log(projectArr);
+  localStorage.setItem('array', JSON.stringify(projectArr));
   return project
 };
 
