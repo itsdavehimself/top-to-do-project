@@ -47,7 +47,7 @@ function allTasks() {
 
       if (project.taskArr[j].priority === 'low') {
         taskCardPriority.classList.add('task-card-priority-low');
-      } else if (project.taskArr[i].priority === 'medium') {
+      } else if (project.taskArr[j].priority === 'medium') {
         taskCardPriority.classList.add('task-card-priority-medium');
       } else {
         taskCardPriority.classList.add('task-card-priority-high');
