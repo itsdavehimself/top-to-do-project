@@ -64,7 +64,7 @@ function renderTaskList(project) {
       const year = dateArr[0]
       const month = (Number(dateArr[1]) - 1).toString();
       const date = Number(dateArr[2]);
-      const formattedDate = format(new Date(year, month, datse), 'MMMM do, y');
+      const formattedDate = format(new Date(year, month, date), 'MMMM do, y');
       const today = new Date();
       const todaysDay = today.getDate();
       const todaysMonth = today.getMonth();
