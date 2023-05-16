@@ -88,10 +88,12 @@ function allTasks() {
       taskCardCheck.addEventListener('click', () => {
         project.taskArr.splice(j, 1);
         allTasksDiv.removeChild(taskCardContainer);
+        allTasks();
       });
       taskCardDeleteBtn.addEventListener('click', () => {
         project.taskArr.splice(j, 1);
         allTasksDiv.removeChild(taskCardContainer);
+        allTasks();
       });
       taskCardInfoDiv.classList.add('home-task-info-div');
       taskCardDeleteDiv.classList.add('home-task-del-div');
