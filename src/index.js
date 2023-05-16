@@ -3,7 +3,6 @@ import homePage from "./home-page";
 import projectsPage from "./projects-page";
 import { sideBar, homeBtnDiv, projectsBtnDiv } from "./sidebar";
 import createHeader from "./header";
-import { loadPage } from "./local-storage";
 
 const contentDiv = document.querySelector('.content');
 
