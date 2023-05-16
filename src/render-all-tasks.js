@@ -1,5 +1,8 @@
 import { format, formatDistance, isPast } from "date-fns";
 import { projectArr } from "./task";
+import trashIcon from './trash-can-outline.svg';
+import calendarIcon from './calendar-multiselect.svg';
+import checkMark from './check.svg';
 
 function allTasks() {
   const allTasksDiv = document.createElement('div');
@@ -26,13 +29,16 @@ function allTasks() {
       const taskCardProjectLabel = document.createElement('p');
       const taskCardProjectName = document.createElement('p');
       const taskCardDateDiv = document.createElement('div');
-      const taskCardDateIcon = document.createElement('img');
+      const trashCan = document.createElement('img');
+      const calendar = document.createElement('img');
+      const check = document.createElement('img');
       const taskCardDate = document.createElement('p');
       const taskCardDescription = document.createElement('p');
       const taskCardPriorityDiv = document.createElement('div');
       const taskCardPriorityLabel = document.createElement('p');
       const taskCardPriority = document.createElement('p');
       const taskCardDeleteDiv = document.createElement('div');
+      const taskCardDeleteBtn = document.createElement('button');
       const {taskName} = task;
       const {description} = task;
       const {priority} = task;
@@ -69,9 +75,24 @@ function allTasks() {
         taskCardDate.textContent = `Due: ${formattedDate}`
       };
 
+      trashCan.src = trashIcon;
+      trashCan.classList.add('trash-icon-task-home');
+      calendar.src = calendarIcon;
+      calendar.classList.add('calendar-icon');
+      check.src = checkMark;
+      check.classList.add('check-icon-task-home');
+      taskCardDeleteBtn.classList.add('home-task-card-del-btn')
       taskCardContainer.classList.add('home-task-card-container');
       taskCardCheckDiv.classList.add('home-task-check-div');
       taskCardCheck.classList.add('home-task-check');
+      taskCardCheck.addEventListener('click', () => {
+        project.taskArr.splice(j, 1);
+        allTasksDiv.removeChild(taskCardContainer);
+      });
+      taskCardDeleteBtn.addEventListener('click', () => {
+        project.taskArr.splice(j, 1);
+        allTasksDiv.removeChild(taskCardContainer);
+      });
       taskCardInfoDiv.classList.add('home-task-info-div');
       taskCardDeleteDiv.classList.add('home-task-del-div');
       taskCardTitleDiv.classList.add('home-task-title-div');
@@ -87,7 +108,7 @@ function allTasks() {
       taskCardProjectName.textContent = projectName;
       taskCardProjectName.classList.add('home-task-project');
       taskCardDateDiv.classList.add('home-task-date-div');
-      taskCardDateIcon.classList.add('home-task-date-icon');
+      calendar.classList.add('home-task-date-icon');
       taskCardDate.classList.add('home-task-date');
       taskCardDescription.textContent = description;
       taskCardDescription.classList.add('home-task-description');
@@ -100,13 +121,14 @@ function allTasks() {
       taskCardContainer.appendChild(taskCard);
       taskCard.appendChild(taskCardCheckDiv);
       taskCardCheckDiv.appendChild(taskCardCheck);
+      taskCardCheck.appendChild(check);
       taskCard.appendChild(taskCardInfoDiv);
       taskCardInfoDiv.appendChild(taskCardTitleDiv);
       taskCardTitleDiv.appendChild(taskCardTitle);
       taskCardInfoDiv.appendChild(taskCardBottomDiv);
       taskCardBottomDiv.appendChild(taskCardDescription);
       taskCardBottomDiv.appendChild(taskCardDateDiv);
-      taskCardDateDiv.appendChild(taskCardDateIcon);
+      taskCardDateDiv.appendChild(calendar);
       taskCardDateDiv.appendChild(taskCardDate);
       taskCardBottomDiv.appendChild(taskCardPriorityDiv);
       taskCardPriorityDiv.appendChild(taskCardPriorityLabel);
@@ -115,6 +137,8 @@ function allTasks() {
       taskCardProjectDiv.appendChild(taskCardProjectLabel);
       taskCardProjectDiv.appendChild(taskCardProjectName);
       taskCard.appendChild(taskCardDeleteDiv);
+      taskCardDeleteDiv.appendChild(taskCardDeleteBtn);
+      taskCardDeleteBtn.appendChild(trashCan);
     }
   }
   allTasksHeader.classList.add('all-tasks-header');
