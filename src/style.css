@@ -163,10 +163,19 @@ body {
 .home-task-card {
   display: grid;
   grid-template-columns: 44px 1fr 44px;
+  padding-bottom: 4px;
   border-bottom: 1px solid #f0f0f0;
 }
 
 .home-task-check-div {
+  display: grid;
+  align-self: start;
+  justify-content: center;
+  padding: 3px;
+  padding-top: 6px;
+}
+
+.home-task-check {
   display: grid;
   border: 1px solid #b0b0b0;
   height: 18px;
@@ -175,10 +184,20 @@ body {
   transition: .4s;
   justify-content: center;
   align-items: center;
-  justify-self: center;
 }
 
-.home-task-check-div:hover {
+.check-icon-task-home {
+  filter: invert(1);
+  transition: .4s;
+  height: 14px;
+  width: 14px;
+}
+
+.check-icon-task-home:hover {
+  filter: invert(.2);
+}
+
+.home-task-check:hover {
   cursor: pointer;
   border-color: #569DF4;
   box-shadow: 0 0 3px 3px #569DF4;
@@ -188,6 +207,7 @@ body {
 .home-task-info-div {
   display: grid;
   grid-template-rows: 32px 1fr;
+  gap: 4px;
 }
 
 .home-task-info-div p {
@@ -199,13 +219,19 @@ body {
   align-items: center;
 }
 
+.home-task-bottom-div {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 4px;
+}
+
 .home-task-bottom-div  p {
   font-size: .8rem;
 }
 
 .home-task-date-div {
   display: grid;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: 16px 1fr;
 }
 
 .home-task-date.overdue {
@@ -214,12 +240,48 @@ body {
 
 .home-task-priority-div {
   display: grid;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: 48px 1fr;
 }
 
 .home-task-project-div {
   display: grid;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: 48px 1fr;
+}
+
+.home-task-del-div {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-task-card-del-btn {
+  display: grid;
+  border: none;
+  background-color: #fff;
+  color: #fff;
+  transition: .4s;
+  height: 32px;
+  width: 32px;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.home-task-card-del-btn:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.home-task-card-del-btn:active {
+  transform: scale(.9);
+}
+
+.trash-icon-task-home {
+  filter: invert(1);
+  transition: .4s;
+}
+
+.home-task-card:hover .trash-icon-task-home {
+  filter: invert(.5);
 }
 
 .projects {
@@ -685,11 +747,11 @@ body {
   height: 32px;
   width: 32px;
   align-items: center;
+  border-radius: 8px;
 }
 
 .delete-task-btn:hover {
   background-color: #f0f0f0;
-  border-radius: 8px;
   cursor: pointer;
 }
 
