@@ -22,7 +22,6 @@ function createProject (name) {
       }
 
       this.taskArr.push(task);
-      console.log(this.taskArr);
     },
     deleteTask(id) {
       const taskID = this.taskArr.findIndex(object => object.id === id);
@@ -30,18 +29,12 @@ function createProject (name) {
     }
   }
   projectArr.push(project);
-  console.log(projectArr);
   localStorage.setItem('array', JSON.stringify(projectArr));
   return project
 };
 
 for (let i = 0; i < storageArr.length; i+=1) {
-  console.log(storageArr[i])
-  const newObj = Object.assign(createProject(), storageArr[i]);
-  console.log('new obj...');
-  console.log(newObj)
-  console.log('projectarr:');
-  console.log(projectArr);
+  Object.assign(createProject(), storageArr[i]);
   localStorage.setItem('array', JSON.stringify(projectArr))
 }
 

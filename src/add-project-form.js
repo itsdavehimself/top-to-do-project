@@ -33,8 +33,7 @@ cancelProjectBtn.setAttribute('type', 'button');
 function addProject(e) {
   const mainDiv = document.querySelector('.main');
   const projectName = document.getElementById('project-name').value;
-  const newProject = createProject(projectName);
-  console.log(newProject);
+  createProject(projectName);
   document.getElementById('project-name').value = '';
   mainDiv.removeChild(coveringPanel);
   e.stopPropagation();

@@ -62,7 +62,6 @@ priorityDiv.classList.add('priority-div');
 
 function addTask(e) {
     e.preventDefault();
-    console.log(`just ran add task function`);
     const projectViewDiv = document.querySelector('.project-view');
     const projectID = projectViewDiv.getAttribute('id');
     const projectIndex = projectArr.findIndex(object => object.id === Number(projectID));
@@ -78,13 +77,11 @@ function addTask(e) {
     document.getElementById('task-date').value = '';
     document.getElementById('task-priority').value = '';
     tasksDiv.removeChild(addTaskDiv);
-    console.log(projectArr[projectIndex]);
     renderTaskList(projectArr[projectIndex]);
 };
 
 function cancelTask(e) {
     const tasksDiv = document.querySelector('.tasks');
-    console.log(`ran cancel task function`);
     document.getElementById('task-name').value = '';
     document.getElementById('task-description').value = '';
     document.getElementById('task-date').value = '';
@@ -113,7 +110,6 @@ function addTaskForm() {
   bottomDiv.appendChild(buttonDiv);
   buttonDiv.appendChild(cancelTaskBtn);
   buttonDiv.appendChild(addTaskBtn);
-  console.log(`about to run add task function`)
   addTaskBtn.addEventListener('click', addTask, {once: true});
   cancelTaskBtn.addEventListener('click', cancelTask, {once: true});
 }
