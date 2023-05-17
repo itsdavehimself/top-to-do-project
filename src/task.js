@@ -1,5 +1,9 @@
 const storageArr = localStorage.getItem('array') ?
-JSON.parse(localStorage.getItem('array')) : [];
+JSON.parse(localStorage.getItem('array')) : [
+  {name: 'My first project', taskArr: [{taskName: 'My first task', description: 'This is my first task!', dueDate: '2023-08-31', priority: 'low'}], id: 1},
+  {name: 'Yardwork', taskArr: [{taskName: 'Mow the lawn', description: 'Charge batteries', dueDate: '2023-05-04', priority: 'high'}], id: 2},
+  {name: 'Spring cleaning', taskArr: [{taskName: 'Clean out garage drawers', description: 'Just toss it!', dueDate: '2023-07-20', priority: 'medium'}], id: 3}
+];
 
 const projectArr = [];
 
