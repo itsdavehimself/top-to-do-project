@@ -38,7 +38,6 @@ function renderProjectList() {
       currentProjectsDiv.removeChild(projectContainer);
       projectArr.splice(i, 1);
       console.log(i);
-      localStorage.removeItem('array');
       localStorage.setItem('array', JSON.stringify(projectArr));
       renderProjectList();
     });
