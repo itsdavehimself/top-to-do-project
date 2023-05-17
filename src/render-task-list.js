@@ -2,6 +2,7 @@ import { format, formatDistance, isPast } from "date-fns";
 import trashIcon from './trash-can-outline.svg';
 import calendarIcon from './calendar-multiselect.svg';
 import checkMark from './check.svg';
+import { projectArr } from "./task";
 
 function renderTaskList(project) {
   const tasksDiv = document.querySelector('.tasks');
@@ -37,6 +38,7 @@ function renderTaskList(project) {
     taskCheckBox.classList.add('task-checkbox');
     taskCheckBox.addEventListener('click', () => {
       project.taskArr.splice(i, 1);
+      localStorage.setItem('array', JSON.stringify(projectArr))
       tasksDiv.removeChild(taskCard);
     });
     taskCardPriorityDiv.classList.add('task-priority-div');
@@ -89,6 +91,7 @@ function renderTaskList(project) {
     deleteTaskBtn.appendChild(trashCan);
     deleteTaskBtn.addEventListener('click', () => {
       project.taskArr.splice(i, 1);
+      localStorage.setItem('array', JSON.stringify(projectArr))
       tasksDiv.removeChild(taskCard);
     });
     tasksDiv.appendChild(taskCard);

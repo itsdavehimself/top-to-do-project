@@ -92,11 +92,13 @@ function allTasks() {
       taskCardCheck.classList.add('home-task-check');
       taskCardCheck.addEventListener('click', () => {
         project.taskArr.splice(j, 1);
+        localStorage.setItem('array', JSON.stringify(projectArr))
         allTasksDiv.removeChild(taskCardContainer);
         allTasks();
       });
       taskCardDeleteBtn.addEventListener('click', () => {
         project.taskArr.splice(j, 1);
+        localStorage.setItem('array', JSON.stringify(projectArr))
         allTasksDiv.removeChild(taskCardContainer);
         allTasks();
       });

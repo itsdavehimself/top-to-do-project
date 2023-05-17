@@ -72,6 +72,7 @@ function addTask(e) {
     const taskPriority = document.getElementById('task-priority').value;
     const tasksDiv = document.querySelector('.tasks');
     projectArr[projectIndex].createTask(taskName, taskDescription, taskDate, taskPriority);
+    localStorage.setItem('array', JSON.stringify(projectArr))
     document.getElementById('task-name').value = '';
     document.getElementById('task-description').value = '';
     document.getElementById('task-date').value = '';
