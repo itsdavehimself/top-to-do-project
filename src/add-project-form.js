@@ -1,6 +1,5 @@
 import { createProject } from './task'
 import renderProjectList from './render-project-list';
-import { populateStorage } from './local-storage';
 
 const coveringPanel = document.createElement('div');
 const projectCreateFormDiv = document.createElement('div');
@@ -38,7 +37,6 @@ function addProject(e) {
   console.log(newProject);
   document.getElementById('project-name').value = '';
   mainDiv.removeChild(coveringPanel);
-  populateStorage();
   e.stopPropagation();
   e.preventDefault();
 }
